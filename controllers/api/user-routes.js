@@ -2,7 +2,7 @@
 ///|   User Routes   |\\\
 //||=================||\\
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Post } = require('../../models');
 
 
 // GET route to get all Users
@@ -18,7 +18,13 @@ router.get('/:id', (req, res) => {
   User.findOne({
       where: {
         id: req.params.id
-      }
+      },
+      include: [
+        {
+          model: Post,
+          attributes: ['id', 'title', 'url', 'createdAt']
+        }
+      ]
     })
       .then(dbUserData => {
         if (!dbUserData) {
