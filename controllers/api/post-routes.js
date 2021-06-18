@@ -18,13 +18,13 @@ router.get('/:id', (req, res) => {
   })
     .then(dbPostData => {
       if (!dbPostData) {
-        res.status(404).json({ message: "I'm sorry, no post with this ID was found"});
+        res.status(404).json({ message: "I'm sorry, no post with this ID was found" });
         return;
       }
       res.json(dbPostData);
     })
     .catch(err => res.status(500).json(err));
-})
+});
 
 // POST route to create a post
 //===============================================
@@ -36,6 +36,31 @@ router.post('/', (req, res) => {
     user_id: req.body.user_id
   })
     .then(dbPostData => res.json(dbPostData))
+    .catch(err => res.status(500).json(err));
+});
+
+// PUT route to update a post by ID
+//===============================================
+router.put('/:id', (req, res) => {
+  Post.update(
+    {
+      title: req.body.title,
+      text: req.body.text,
+      url: req.body.url
+    },
+    {
+      where: {
+      id: req.params.id
+      }
+    }
+  )
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: "I'm sorry, no post with this ID was found" });
+        return;
+      }
+      res.json(dbPostData);
+    })
     .catch(err => res.status(500).json(err));
 });
 
