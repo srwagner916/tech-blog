@@ -41,5 +41,22 @@ router.post('/', (req, res) => {
     .then(dbCommentData => res.json(dbCommentData))
     .catch(err => res.status(500).json(err));
 });
+// DELETE route to delete a comment by ID
+//===============================================
+router.delete('/:id', (req, res) => {
+  Comment.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbCommentData => {
+      if (!dbCommentData) {
+        res.status(404).json({ message: "I'm sorry, no comment with this ID found" });
+        return;
+      }
+      res.json(dbCommentData);
+    })
+      .catch(err => res.status(500).json(err));
+});
 
 module.exports = router;
