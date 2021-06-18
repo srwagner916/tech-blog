@@ -8,6 +8,24 @@ router.get('/', (req, res) => {
     .catch(err => res.json(status).json(err));
 });
 
+//  GET route to find one post by ID
+//===============================================
+router.get('/:id', (req, res) => {
+  Post.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: "I'm sorry, no post with this ID was found"});
+        return;
+      }
+      res.json(dbPostData);
+    })
+    .catch(err => res.status(500).json(err));
+})
+
 // POST route to create a post
 //===============================================
 router.post('/', (req, res) => {
