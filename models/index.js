@@ -17,3 +17,5 @@ Post.belongsTo(User, {
   // on delete set user_id to null
   onDelete: 'SET NULL'
 });
+
+module.exports = { User, Post };
