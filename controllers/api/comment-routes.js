@@ -5,6 +5,13 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
 
+// GET route to find all comments
+//===============================================
+router.get('/', (req, res) => {
+  Comment.findAll({}).then(dbCommentData => res.json(dbCommentData))
+    .catch(err => res.status(500).json(err));
+});
+
 // POST route to create a comment
 //===============================================
 router.post('/', (req, res) => {
