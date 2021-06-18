@@ -7,7 +7,8 @@ User.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      autoIncrement: true
+      autoIncrement: true,
+      primaryKey: true
     },
     username: {
       type: DataTypes.STRING,
