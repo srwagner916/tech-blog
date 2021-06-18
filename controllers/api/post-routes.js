@@ -2,7 +2,7 @@
 ///|   Post Routes   |\\\
 //||=================||\\
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post, Comment, User } = require('../../models');
 
 // GET route to find all posts
 //===============================================
@@ -17,7 +17,19 @@ router.get('/:id', (req, res) => {
   Post.findOne({
     where: {
       id: req.params.id
-    }
+    },
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'text', 'createdAt'],
+        include: [
+          {
+            model: User,
+            attributes: ['username']
+          }
+        ]
+      }
+    ]
   })
     .then(dbPostData => {
       if (!dbPostData) {

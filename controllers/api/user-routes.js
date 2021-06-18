@@ -2,8 +2,7 @@
 ///|   User Routes   |\\\
 //||=================||\\
 const router = require('express').Router();
-const { User, Post } = require('../../models');
-
+const { User, Post, Comment } = require('../../models')
 
 // GET route to get all Users
 //===============================================
@@ -23,6 +22,10 @@ router.get('/:id', (req, res) => {
         {
           model: Post,
           attributes: ['id', 'title', 'url', 'createdAt']
+        },
+        {
+          model: Comment,
+          attributes: ['text', 'createdAt']
         }
       ]
     })
