@@ -54,4 +54,34 @@ router.post('/', (req, res) => {
     .catch(err => res.status(500).json(err));
 });
 
+// POST route to login with email and password
+//===============================================
+router.post('/login', (req, res) => {
+  User.findOne({
+    where: {
+      email: req.body.email
+    }
+  })
+    // email check
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(404).json({ message: "I'm sorry, no user with that email address was found" });
+        return;
+      }
+      // password check
+      // this method compares the password passed in req.body to the hashed password from dbUserData
+      const validPw = dbUserData.passwordCheck(req.body.password);
+      if (!validPw) {
+        res.status(400).json({ message: "I'm sorry, this password is incorrect" });
+        return;
+      }
+      res.json(
+        { 
+          user: dbUserData,
+          message: `${dbUserData.username} is now logged in`
+        }
+      );
+    });
+});
+
 module.exports = router;

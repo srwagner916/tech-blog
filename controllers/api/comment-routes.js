@@ -3,7 +3,7 @@
 //||=================||\\
 
 const router = require('express').Router();
-const { Comment } = require('../../models');
+const { Comment, User } = require('../../models');
 
 // GET route to find all comments
 //===============================================
@@ -41,6 +41,7 @@ router.post('/', (req, res) => {
     .then(dbCommentData => res.json(dbCommentData))
     .catch(err => res.status(500).json(err));
 });
+
 // DELETE route to delete a comment by ID
 //===============================================
 router.delete('/:id', (req, res) => {
