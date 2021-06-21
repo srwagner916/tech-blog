@@ -1,0 +1,28 @@
+<div class="container mb-2 has-text-centered">
+  <p class="is-size-4 has-text-weight-semibold">Comments:</p>
+</div>
+
+{{#each this}}
+  <div class="box">
+    <div class="card">
+
+      <header class="card-header level">
+        <div class="level-item">
+          <p>
+            By: {{user.username}}
+          </p>
+        </div>
+        <div class="level-item">
+          <p>
+            Submitted on: {{format_date createdAt}}
+          </p>
+        </div>
+      </header>
+
+      <div class="card-content">
+        {{text}}
+      </div>
+
+    </div>
+  </div>
+{{/each}}
