@@ -1,14 +1,11 @@
 <div class="columns is-centered">
   <div class="column is-half has-background-primary">
     {{> post posts }}
-
-
-
-    <form>
+    <form class="add-comment">
       <div class="field">
         <label class="label">Add a comment</label>
         <div class="control">
-          <textarea class="textarea" placeholder="Your text here:"></textarea>
+          <textarea class="textarea" name="text" placeholder="Your text here:"></textarea>
         </div>
       </div>
 
@@ -28,3 +25,5 @@
     {{> comments posts.comments}}
   </div>
 </div>
+
+<script src="/javascript/add-comment.js"></script>
