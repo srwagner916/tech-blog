@@ -17,6 +17,11 @@
     <div class="column is-half has-background-primary">
       {{#each posts as |post|}}
         {{> post post}}
+        <div class="columns is-centered">
+          <div class="column is-one-quarter pt-0">
+            <a class="button is-medium is-fullwidth" href="/dashboard/edit/{{post.id}}">Edit</a>
+          </div>
+        </div>
       {{/each}}
     </div>
   </div>
