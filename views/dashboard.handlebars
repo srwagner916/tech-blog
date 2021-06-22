@@ -1,0 +1,24 @@
+<section>
+  <div class="columns is-centered">
+    <div class="column is-half has-background-primary">
+
+      <div class="box has-background-info has-text-centered">
+        <h2 class="title">Hello {{posts.0.user.username}}!</h2>
+        <h3 class=subtitle>Welcome to your user dashboard</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{{#if posts.length}}
+<section>
+  <div class="columns is-centered">
+    <div class="column is-half has-background-primary">
+      {{#each posts as |post|}}
+        {{> post post}}
+      {{/each}}
+    </div>
+  </div>
+</section>
+{{/if}}
