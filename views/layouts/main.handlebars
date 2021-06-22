@@ -7,17 +7,42 @@
   <title>Tech Blog</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" integrity="sha512-IgmDkwzs96t4SrChW29No3NXBIBv8baW490zk5aXvhCD8vuZM3yUSkbyTBcXohkySecyzIrUwiF/qV0cuPcL3Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-  <section class="hero is-medium is-info mb-5">
+  <section class="hero is-medium is-info">
     <div class="hero-body">
       <h1 class="title is-size-1">
         Shay's Tech Blog
       </h1>
     </div>
   </section>
-  <main>
-    {{{ body }}}
+  <nav class="level navbar has-background-warning mt-0">
+    <div class="level-left">
+      <div class="level-item">
+        <p class="subtitle is-size-4 px-4">
+          Stay Connected
+        </p>
+      </div>
+      <div class="level-item">
+        <a class="is-size-4" href="/">Home</a>
+      </div>
+      <div class="level-item">
+        <a class="is-size-4" href="/dashboard">Dashboard</a>
+      </div>
+    </div>
+    <div class="level-right">
+      {{#if loggedIn}}
+      <button id="logout-btn" class="no-style">
+        <p class="is-size-4 pr-4">Logout</p>
+      </button>
+      {{else}}
+      <a class="pr-4" href="/login">Login</a>
+      {{/if}}
+    </div>
+  </nav>
+  <main class="mt-5">
+  {{{ body }}}
   </main>
   <footer class="footer has-background-info mt-5">
     <div class="content has-text-centered">
@@ -26,5 +51,8 @@
       </p>
     </div>
   </footer>
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
 </body>
 </html>
