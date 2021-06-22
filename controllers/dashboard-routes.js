@@ -1,3 +1,8 @@
+/////=================\\\\\
+////|    Dashboard    |\\\\
+///||     Routes      ||\\\
+//|||=================|||\\
+
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const authguard = require('../utils/authguard');
@@ -36,6 +41,9 @@ router.get('/', authguard, (req, res) => {
     .catch(err => res.json(status).json(err));
 });
 
+// GET route to find one user post for user dashboard
+// to edit
+//=======================================================
 router.get('/edit/:id', authguard, (req, res) => {
   Post.findByPk(req.params.id, {
     include: [
@@ -68,6 +76,8 @@ router.get('/edit/:id', authguard, (req, res) => {
     .catch(err => res.status(500).json(err));
 });
 
+// Render the dashboard/submit page to add a post
+//=======================================================
 router.get('/submit', (req, res) => {
   res.render('add-post', { loggedIn: true })
 });

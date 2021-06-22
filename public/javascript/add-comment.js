@@ -1,3 +1,8 @@
+/////=================\\\\\
+////|   Add comment   |\\\\
+///||     handler     ||\\\
+//|||=================|||\\
+
 async function commentHandler(event) {
   event.preventDefault();
 

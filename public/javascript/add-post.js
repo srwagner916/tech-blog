@@ -1,3 +1,8 @@
+/////=================\\\\\
+////|     add post    |\\\\
+///||     handler     ||\\\
+//|||=================|||\\
+
 async function addPostHandler(event) {
   event.preventDefault();
   const title = document.querySelector('input[name="title"]').value.trim();

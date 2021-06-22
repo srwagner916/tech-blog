@@ -1,3 +1,7 @@
+/////=================\\\\\
+////|    login and    |\\\\
+///|| signup handler  ||\\\
+//|||=================|||\\
 
 async function loginHandler(event) {
     event.preventDefault();

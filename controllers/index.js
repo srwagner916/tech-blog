@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const apiRoutes = require('./api');
 const homeRoutes = require('./home-routes');
-const singlePostRoutes = require('./single-post');
+const singlePostRoutes = require('./single-post-routes');
 const dashboardRoutes = require('./dashboard-routes');
 
 router.use('/', homeRoutes);
