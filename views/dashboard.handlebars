@@ -3,10 +3,49 @@
     <div class="column is-half has-background-primary">
 
       <div class="box has-background-info has-text-centered">
-        <h2 class="title">Hello {{posts.0.user.username}}!</h2>
-        <h3 class=subtitle>Welcome to your user dashboard</h3>
+        <h2 class="title is-size-2">Hello {{posts.0.user.username}}!</h2>
+        <h3 class="subtitle is-size-4">Welcome to your user dashboard</h3>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="columns is-centered">
+    <div class="column is-half has background-primary mb-3">
+      <p class="has-text-centered is-size-3">Add a post!</p>
+      <form id="add-post">
+        <div class="field">
+          <div class="control">
+            <input class="input" type="text" name="title" placeholder="title">
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">   
+            <textarea class="textarea" type="text" name="text" placeholder="Your post text"></textarea>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <input class="input" type="text" name="url" placeholder="http://yoururl.com/">
+          </div>
+          <p class="help">Not required</p>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <button class="button is-medium is-fullwidth" type="submit">
+              <span class="icon is-small">
+                <i class="far fa-check-circle"></i>
+              </span>
+              <span>Submit</span>
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </section>
@@ -15,6 +54,7 @@
 <section>
   <div class="columns is-centered">
     <div class="column is-half has-background-primary">
+      <p class="has-text-centered is-size-3">Your Posts</p>
       {{#each posts as |post|}}
         {{> post post}}
         <div class="columns is-centered">
@@ -27,3 +67,5 @@
   </div>
 </section>
 {{/if}}
+
+<script src="/javascript/add-post.js"></script>
