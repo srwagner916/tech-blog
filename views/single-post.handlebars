@@ -1,6 +1,7 @@
 <div class="columns is-centered">
   <div class="column is-half has-background-primary">
     {{> post posts }}
+    {{#if loggedIn}}
     <form class="add-comment">
       <div class="field">
         <label class="label">Add a comment</label>
@@ -22,6 +23,7 @@
         </div>
       </div>
     </form>
+    {{/if}}
     {{> comments posts.comments}}
   </div>
 </div>

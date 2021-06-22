@@ -4,6 +4,7 @@
 
 const router = require('express').Router();
 const { Comment, User } = require('../../models');
+const authguard = require('../../utils/authguard');
 
 // GET route to find all comments
 //===============================================
@@ -32,10 +33,10 @@ router.get('/:id', (req, res) => {
 
 // POST route to create a comment
 //===============================================
-router.post('/', (req, res) => {
+router.post('/', authguard, (req, res) => {
   Comment.create({
     text: req.body.text,
-    user_id: req.body.user_id,
+    user_id: req.session.user_id,
     post_id: req.body.post_id
   })
     .then(dbCommentData => res.json(dbCommentData))
@@ -44,7 +45,7 @@ router.post('/', (req, res) => {
 
 // DELETE route to delete a comment by ID
 //===============================================
-router.delete('/:id', (req, res) => {
+router.delete('/:id', authguard, (req, res) => {
   Comment.destroy({
     where: {
       id: req.params.id
