@@ -67,4 +67,8 @@ router.get('/edit/:id', authguard, (req, res) => {
     .catch(err => res.status(500).json(err));
 });
 
+router.get('/submit', (req, res) => {
+  res.render('add-post', { loggedIn: true })
+});
+
 module.exports = router;
