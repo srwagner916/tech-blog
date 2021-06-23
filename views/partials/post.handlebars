@@ -2,14 +2,14 @@
     <div class="card my-3">
       <header class="card-hearder level">
         <div class="level-item">
-          <p class="is-size-3 has-text-weight-medium">
+          <a href="post/{{id}}" class="post-title is-underlined is-size-3 has-text-weight-medium">
             {{title}}
-          </p>
+          </a>
         </div>
         {{#if url}}
         <div class="level-item">
-          <a href="{{url}}" target="_blank">
-            {{url}}
+          <a class="is-underlined is-italic" href="{{url}}" target="_blank">
+            {{format_url url}}
           </a>
         </div>
         {{/if}}
@@ -18,7 +18,7 @@
         </div>
       </header>
       <div class="card-content pt-0">
-        <p>
+        <p class="is-size-5">
           {{text}}
         </p>
       </div>

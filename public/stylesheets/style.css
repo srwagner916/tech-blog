@@ -8,3 +8,128 @@
     transition: color .1s;
     margin-left: 16px;
 }
+
+.no-style:hover {
+  text-shadow: 2px 3px 6px #000019;
+}
+
+.hero {
+  background-image: url('../images/code.jpg');
+  background-position: center;
+  background-size: cover;
+  border-bottom: 15px solid #3B3B72;
+}
+
+body {
+  background-color: #000019;
+  font-family: 'Bitter', serif;
+}
+
+.column {
+  background-color: #3B3B72;
+}
+
+.column p {
+  color: #CCCCFF;
+}
+
+.box {
+  background-color: #7F7F99;
+}
+
+.card {
+  background-color: #7F7F99;
+  font-family: 'Raleway', serif;
+}
+
+.navbar {
+  background-color: #3B3B72;
+}
+
+.navbar p {
+  color: #CCCCFF;
+}
+
+.navbar a {
+  color: #CCCCFF;
+}
+
+.navbar a:hover {
+  text-shadow: 2px 3px 6px #000019;
+}
+
+.title-box {
+  background-color: #3B3B72;
+}
+
+.card p {
+  color: #191919;
+}
+
+.has-text-centered p {
+  color: #191919;
+}
+
+.card a {
+  color: #CCCCFF;
+}
+
+h1 {
+  color: #CCCCFF;
+}
+
+h2, h3 {
+  color: #CCCCFF;
+}
+
+.label {
+  color: #CCCCFF;
+}
+
+.button {
+  background-color: #CCCCFF;
+  border-color: #7F7FFF;
+}
+
+.button:hover {
+  background-color: #000019;
+  color: #CCCCFF;
+}
+
+.input, .textarea {
+  background-color: #CCCCFF;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  background-color: #3B3B72;
+}
+
+body > footer {
+  margin-top: auto;
+}
+
+section {
+  flex: 1;
+}
+
+.dark-text {
+  color: #191919;
+}
+
+.footer p {
+  color: #CCCCFF;
+}
+
+.title, .subtitle {
+  color: #CCCCFF;
+}
+
+.post-title:hover {
+  color: #191919;
+}

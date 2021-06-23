@@ -1,8 +1,8 @@
 <section>
   <div class="columns is-centered">
-    <div class="column is-half has-background-primary">
+    <div class="column is-half">
 
-      <div class="box has-background-info has-text-centered">
+      <div class="box has-text-centered">
         <h2 class="title is-size-2">Hello {{posts.0.user.username}}!</h2>
         <h3 class="subtitle is-size-4">Welcome to your user dashboard</h3>
       </div>
@@ -17,7 +17,7 @@
 {{#if posts.length}}
 <section>
   <div class="columns is-centered">
-    <div class="column is-half has-background-primary">
+    <div class="column is-half">
       <p class="has-text-centered is-size-3">Your Posts</p>
       {{#each posts as |post|}}
         {{> post post}}
